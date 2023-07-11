@@ -4,7 +4,7 @@
 
 int main (void){
 
-    int i = 0, menu, menu4, menu3, menu2, cantidad1= 0, cantidad2= 0, cantidad3= 0, sala_Normal= 30, sala_Vip= 15, sala_3d= 20, sala_Normal2= 30, sala_Vip2= 15, sala_3d2= 20;
+    int i = 0, menu, menu4, menu3, menu2, cantidad1= 0, cantidad2= 0, cantidad3= 0, cantidad4= 0, cantidad5= 0, cantidad6= 0, sala_Normal= 30, sala_Vip= 15, sala_3d= 20, sala_Normal2= 30, sala_Vip2= 15, sala_3d2= 20;
     float precio, precio1= 8.00, precio2= 15.00, precio3= 12.00, precioF;
     
 do {      
@@ -20,6 +20,7 @@ do {
             do {
                 printf("1. Barbie\n");
                 printf("2. Flash\n");
+                printf("3. Salir\n");
                 scanf("%d", &menu2);
                 switch (menu2)
                 {
@@ -100,7 +101,7 @@ do {
                     if (cantidad1 > sala_Normal || cantidad2 > sala_Vip || cantidad3 > sala_3d){
                         printf("Ya no es posible comprar mas entradas en esta sala\n");
                     }
-                } while (menu3 != 4 || cantidad1 < sala_Normal || cantidad2 < sala_Vip || cantidad3 < sala_3d);
+                } while (menu3 != 4 && cantidad1 < sala_Normal && cantidad2 < sala_Vip && cantidad3 < sala_3d);
                 case 2: 
                     do {
                     
@@ -116,9 +117,9 @@ do {
                     precio= 0;
                     
                     printf("Ingrese la cantidad de entradas\n");
-                    scanf("%d", &cantidad1);
-                    sala_Normal= sala_Normal - cantidad1;
-                    precio= cantidad1 * precio1;
+                    scanf("%d", &cantidad4);
+                    sala_Normal= sala_Normal - cantidad4;
+                    precio= cantidad4 * precio1;
                     if (precio < 40){
                         printf("El precio final de su compra es de %.2f\n", precio);
                     } else if (precio >= 40 && precio <= 80){
@@ -134,9 +135,9 @@ do {
                     break;
                     case 2: 
                     printf("Ingrese la cantidad de entradas\n");
-                    scanf("%d", &cantidad2);
-                    sala_Vip2= sala_Vip2 - cantidad2;
-                    precioF= cantidad2 * precio2;
+                    scanf("%d", &cantidad5);
+                    sala_Vip2= sala_Vip2 - cantidad5;
+                    precioF= cantidad5 * precio2;
                     if (precioF < 40){
                         printf("El precio final de su compra es de %.2f\n", precioF);
                     } else if (precioF >= 40 && precioF <= 80){
@@ -151,10 +152,10 @@ do {
                     }
                     break;
                     case 3: printf("Ingrese la cantidad de entradas\n");
-                    scanf("%d", &cantidad3);
-                    sala_3d= sala_3d - cantidad3;
-                    precioF= cantidad2 * precio2;
-                    if (precio < 40){
+                    scanf("%d", &cantidad6);
+                    sala_3d= sala_3d - cantidad6;
+                    precioF= cantidad6 * precio2;
+                    if (precioF < 40){
                         printf("El precio final de su compra es de %.2f\n", precio);
                     } else if (precioF >= 40 && precioF <= 80){
                         precioF*= 0.95;
@@ -179,7 +180,7 @@ do {
                     if (cantidad1 > sala_Normal2 || cantidad2 > sala_Vip2 || cantidad3 > sala_3d2){
                         printf("Ya no es posible comprar mas entrada en esta sala\n");
                     }
-                } while (menu4 != 4 || cantidad1 > sala_Normal2 || cantidad2 > sala_Vip2 || cantidad3 > sala_3d2);
+                } while (menu4 != 4 && cantidad1 < sala_Normal2 && cantidad2 < sala_Vip2 && cantidad3 < sala_3d2);
                 }
                 case 3: 
                 printf("Saliendo\n");
@@ -188,7 +189,15 @@ do {
         
         case 2: 
             printf("Estadisticas de ventas\n");
-        
+            printf("Las entradas a sala normal vendidas para barbie son %d\n", cantidad1);
+            printf("Las entradas a sala vip vendidas para barbie son %d\n", cantidad2);
+            printf("Las entradas a sala vip vendidas para barbie son %d\n", cantidad3);
+            printf("Las entradas a sala normal vendidas para flash son %d\n", cantidad4);
+            printf("Las entradas a sala vip vendidas para flash son %d\n", cantidad5);
+            printf("Las entradas a sala vip vendidas para flash son %d\n", cantidad6);
+           printf ("Lo recaudado en la pelicula de barbie fue de %.2f", precio);
+           printf ("Lo recaudado en la pelicula de flash fue de %.2f", precio2);
+
         default:
             printf("La opcion ingresada no es correcta\n");
             break;
